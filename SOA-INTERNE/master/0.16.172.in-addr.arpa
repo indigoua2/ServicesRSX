@@ -1,0 +1,14 @@
+$ORIGIN 0.16.172.in-addr.arpa.
+$TTL 86400
+@	     	IN     SOA    	soa.l2-1.ephec-ti.be.     l2-1.ephec.be. (
+                    		2001062501 ; serial
+                    		21600      ; refresh after 6 hours
+                    		3600       ; retry after 1 hour
+                    		604800     ; expire after 1 week
+                    		86400 )    ; minimum TTL of 1 day
+
+      		IN     NS     	soa.l2-1.ephec-ti.be.
+
+1		PTR		resolv.l2-1.ephec-ti.be.
+2		PTR		soa.l2-1.ephec-ti.be.
+3		PTR		erp.l2-1.ephec-ti.be.
