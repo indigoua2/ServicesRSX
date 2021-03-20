@@ -1,0 +1,50 @@
+version: "2"
+
+services:
+
+  resolver:
+    build: ./config/.
+    ports:
+      - 53:53
+    networks:
+      interne:
+          ipv4_address: 172.16.0.1
+    volumes:
+      - ./config/named.conf:/etc/bind/named.conf
+    container_name: resolver
+    command: "named -c /etc/bind/named.conf -g"
+
+  soa-int:
+    build: ./config/.
+    networks:
+      interne:
+          ipv4_address: 172.16.0.2
+    volumes:
+      - ./soa/named.conf:/etc/bind/named.conf
+      - ./soa/l2-1.ephec-ti.be:/etc/bind/master/l2-1.ephec-ti.be
+      - ./soa/0.16.172.in-addr.arpa:/etc/bind/master/0.16.172.in-addr.arpa
+      - ./soa/resolv.conf:/etc/resolv.conf
+    container_name: soa-int
+    dns:
+      - 172.16.0.1
+    command: "named -c /etc/bind/named.conf -g"
+    
+  test:
+    build: ./user/.
+    networks:
+      interne:
+        ipv4_address: 172.16.0.99
+    container_name: test
+    volumes:
+      - ./user/resolv.conf:/etc/resolv.conf
+    dns:
+      - 172.16.0.1
+
+networks:
+
+  interne:
+      ipam:
+          driver: default
+          config:
+              - subnet: 172.16.0.0/24
+                gateway:  172.16.0.254
