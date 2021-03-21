@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+
+  commerciaux:
+    build: .
+    networks:
+      commerciaux_net:
+          ipv4_address: 192.168.3.1
+    container_name: commerciaux
+
+networks:
+
+  commerciaux_net:
+      ipam:
+          driver: default
+          config:
+              - subnet: 192.168.3.0/24
+                gateway:  192.168.3.254
+
