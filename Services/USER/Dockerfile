@@ -6,8 +6,8 @@ RUN apt-get install -y dnsutils net-tools iputils-ping
 RUN apt-get install -y curl elinks
 RUN apt-get install iputils-ping
 
-RUN useradd -ms /bin/bash  test
-USER test
+RUN useradd -ms /bin/bash  atelier
+USER atelier
 
 COPY resolv.conf /etc/resolv.conf
 # Permet de maintenir le conteneur en vie
