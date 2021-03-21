@@ -28,17 +28,8 @@ services:
     dns:
       - 172.16.0.1
     command: "named -c /etc/bind/named.conf -g"
-    
-  test:
-    build: ./user/.
-    networks:
-      interne:
-        ipv4_address: 172.16.0.99
-    container_name: test
-    volumes:
-      - ./user/resolv.conf:/etc/resolv.conf
-    dns:
-      - 172.16.0.1
+
+
 
 networks:
 
