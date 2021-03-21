@@ -7,9 +7,9 @@ $TTL 86400
                                 604800     ; expire after 1 week
                                 86400 )    ; minimum TTL of 1 day
 
-                IN     NS       ns.l2-1.ephec-ti.be. 
+@                IN     NS       ns.l2-1.ephec-ti.be. 
 
 erp     IN      A               172.16.0.3 
-soa     IN      A               172.16.0.2
+ns      IN      A               172.16.0.2
 resolv  IN      A               172.16.0.1
-db	    IN	    A				172.16.0.4
+db	    IN	    A				        172.16.0.4
