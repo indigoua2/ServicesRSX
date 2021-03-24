@@ -1,6 +1,6 @@
 FROM unbuntu:latest
 
-sudo apt-get install -y bind9
+RUN sudo apt-get install -y bind9
 
 WORKDIR /etc/bind
 COPY named.conf /etc/bind/named.conf
