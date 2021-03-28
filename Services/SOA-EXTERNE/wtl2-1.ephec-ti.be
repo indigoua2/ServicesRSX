@@ -7,7 +7,7 @@ $TTL 86400
                                 86400     ; expire after 1 week
                                 86400)    ; minimum TTL of 1 day
 
-@       IN     NS               ns.wtl2-1.ephec-ti.be. 
+@       IN      NS              ns.wtl2-1.ephec-ti.be. 
 ns      IN      A               135.125.101.200
 
 ;WEB
@@ -18,4 +18,4 @@ www	    IN      A               135.125.101.200
 mail    IN      A               135.125.101.200
 
 ;VOIP (mettre sip udp et tcp)
-sip    IN      A               135.125.101.200
+sip     IN      A               135.125.101.200
