@@ -29,6 +29,21 @@ services:
       - 172.16.0.1
     command: "named -c /etc/bind/named.conf -g"
 
+  database:
+    build: ./DB/.
+    command: --default-authentication-plugin=mysql_native_password
+
+    ports: 
+      - 5000:3306
+    networks:
+      interne:
+          ipv4_address: 172.16.0.4
+    volumes:
+      - ./DB/db.sql:/data/
+    environment:
+      MYSQL_ROOT_PASSWORD: wtl2
+
+    container_name: database
 
 networks:
 
