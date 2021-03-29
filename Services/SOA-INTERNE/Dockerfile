@@ -1,6 +1,7 @@
 FROM unbuntu:latest
 
-RUN sudo apt-get install -y bind9
+RUN apt-get update && apt-get install -y bind9
+RUN apt-get install -y dnsutils net-tools iputils-ping 
 
 WORKDIR /etc/bind
 COPY named.conf /etc/bind/named.conf
