@@ -1,15 +1,15 @@
 $ORIGIN 0.16.172.in-addr.arpa.
 $TTL 86400
-@               IN     SOA      ns.l2-1.ephec-ti.be.     l2-1.ephec.be. (
+@               IN     SOA      ns.intranet.ephec-ti.be.     intranet.ephec.be. (
                                 1 ; serial
                                 3600      ; refresh after 6 hours
                                 600       ; retry after 1 hour
                                 86400     ; expire after 1 week
                                 86400 )    ; minimum TTL of 1 day
 
-@       IN     NS     	ns.l2-1.ephec-ti.be.
+@       IN     NS     	ns.intranet.ephec-ti.be.
 
-1		PTR		resolv.l2-1.ephec-ti.be.
-2		PTR		ns.l2-1.ephec-ti.be.
-3		PTR		erp.l2-1.ephec-ti.be.
-4		PTR		db.l2-1.ephec-ti.be.
+1		PTR		resolv.intranet.ephec-ti.be.
+2		PTR		ns.intranet.ephec-ti.be.
+3		PTR		erp.intranet.ephec-ti.be.
+4		PTR		db.intranet.ephec-ti.be.
