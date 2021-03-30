@@ -45,6 +45,19 @@ services:
 
     container_name: database
 
+
+  erp:
+    build: ./ERP/.
+
+    ports: 
+      - 80:80
+      - 443:443
+    networks:
+      interne:
+          ipv4_address: 172.16.0.3
+
+
+    container_name: erp
 networks:
 
   interne:
