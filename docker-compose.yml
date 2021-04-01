@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+
+  soa-ext:
+    build: ./SOA-EXTERNE/.
+    ports:
+      - 53:53
+    networks:
+      dmz:
+          ipv4_address: 172.16.1.2
+    volumes:
+      - ./SOA-EXTERNE/named.conf:/etc/bind/named.conf
+      - ./SOA-EXTERNE/l2-1.ephec-ti.be:/etc/bind/master/l2-1.ephec-ti.be
+    container_name: soa-ext
+    command: "named -c /etc/bind/named.conf -g"
+
+
+
+
+networks:
+
+  dmz:
+      ipam:
+          driver: default
+          config:
+              - subnet: 172.16.1.0/24
+                gateway:  172.16.1.254
+
