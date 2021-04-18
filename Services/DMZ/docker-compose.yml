@@ -3,20 +3,36 @@ version: "2"
 services:
 
   soa-ext:
-    build: ./SOA-EXTERNE/.
+    build: ./SOA-EXT/.
     ports:
-      - 53:53
+      - "53:53/udp"
+      - "53:53/tcp"
     networks:
       dmz:
           ipv4_address: 172.16.1.2
     volumes:
-      - ./SOA-EXTERNE/named.conf:/etc/bind/named.conf
-      - ./SOA-EXTERNE/l2-1.ephec-ti.be:/etc/bind/master/l2-1.ephec-ti.be
+      - ./SOA-EXT/named.conf:/etc/bind/named.conf
+      - ./SOA-EXT/named.conf.local:/etc/bind/named.conf.local
+      - ./SOA-EXT/l2-1.ephec-ti.be:/etc/bind/l2-1.ephec-ti.be
     container_name: soa-ext
     command: "named -c /etc/bind/named.conf -g"
 
 
-
+  web-dmz:
+    build: ./WEB/
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      dmz:
+          ipv4_address: 172.16.1.1
+    volumes:
+      - ./WEB/b2b.php:/var/www/b2b/index.php
+      - ./WEB/b2b.conf:/etc/apache2/sites-available/b2b.conf
+      - ./WEB/apache2.conf:/etc/apache2/apache2.conf
+      - ./WEB/www.html:/var/www/index.html
+      - ./WEB/www.conf:/etc/apache2/sites-available/www.conf
+    container_name: web
 
 networks:
 
@@ -25,5 +41,4 @@ networks:
           driver: default
           config:
               - subnet: 172.16.1.0/24
-                gateway:  172.16.1.254
-
+                gateway: 172.16.1.254
