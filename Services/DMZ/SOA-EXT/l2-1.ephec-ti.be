@@ -1,11 +1,11 @@
 $ORIGIN l2-1.ephec-ti.be.
 $TTL 86400
 @               IN     SOA      ns.l2-1.ephec-ti.be.     l2-1.ephec-ti.be. (
-                               	1 ; serial
-                                3600      ; refresh after 6 hours
-                                600       ; retry after 1 hour
-                                86400     ; expire after 1 week
-                                86400)    ; minimum TTL of 1 day
+                               	2001062501 ; serial
+                                21600      ; refresh after 6 hours
+                                3600       ; retry after 1 hour
+                                604800     ; expire after 1 week
+                                86400 )    ; minimum TTL of 1 day
 	IN     NS              ns.l2-1.ephec-ti.be.
 ns      IN      A              135.125.101.200
 
