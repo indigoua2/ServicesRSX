@@ -1,22 +1,23 @@
 <?php
-	$connexion = mysqli_connect('172.16.0.4:3306', 'wtl2-1', 'vps-ikram', 'db_wt') or die('Erreur de connexion');
-
+	$connexion = mysqli_connect('ip', 'username', 'password', 'db_wt') or die('Erreur de connexion');
+	#Précise l'ip sur laquelle aller chercher la DB, le nom de l'utilisateur qui possède des permissions ainsi que son mot de passe, et le nom de la DB
+	#Par soucis de sécurité, les réelles informations ne sont pas divulguées ici, juste la structure utilisée
 ?>
 <html>
-	<head>
+    <head>
 	
-	</head>
-        <body>
-                <h1> ERP </h1>
-			<?php
-			        $requete1 = mysqli_query($connexion,'SELECT * FROM jeux;');				
-				while($result = mysqli_fetch_row($requete1)) {
-					 print '<div>Titre : '.$result[0].'. Prix : '.$result[1].'</div>'; 
-				};
+    </head>
+    <body>
+        <h1> ERP </h1>
+        <?php
+                $requete1 = mysqli_query($connexion,'SELECT * FROM jeux;');
+                #requete1 contient la reponse de la requête faite à la DB
+                while($result = mysqli_fetch_row($requete1)) {
+                        print '<div>Titre : '.$result[0].'. Prix : '.$result[1].'</div>'; 
+                };
        				
-				 mysqli_close($connexion);
+                mysqli_close($connexion);
  
-			?>
-        </body>
+        ?>
+    </body>
 </html>
-
