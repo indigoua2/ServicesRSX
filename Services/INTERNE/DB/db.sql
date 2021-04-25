@@ -16,7 +16,6 @@ CREATE TABLE jeux(
     nom_jeu CHAR(40) NOT NULL,
     prix DECIMAL(5,2) NOT NULL,
     PRIMARY KEY(id_jeu)
-
 );
 
 INSERT INTO jeux (nom_jeu, prix)
