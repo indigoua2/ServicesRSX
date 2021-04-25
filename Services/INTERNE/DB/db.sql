@@ -1,4 +1,4 @@
-#Création des différents (5) utilisateurs qui pourront accéder à la DB (on ne voit ici que la structure utilisée, par soucis de sécurité)
+#Création des différents (5) utilisateurs qui pourront accéder à la DB (on ne voit ici que la structure utilisée, par soucis de sécurité on ne voit pas les informations confidentielles)
 CREATE USER 'username'@'address' IDENTIFIED BY 'password';
 
 #Création DB
@@ -22,3 +22,5 @@ INSERT INTO jeux (nom_jeu, prix)
 VALUES ("cheval en bois", 32.50),
        ("guitarre", 43.00),
        ("arc a fleches", 9.99);
+
+                                                             
