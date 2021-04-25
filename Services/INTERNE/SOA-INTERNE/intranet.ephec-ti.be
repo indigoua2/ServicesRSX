@@ -1,6 +1,6 @@
 $ORIGIN intranet.ephec-ti.be.
 $TTL 86400
-@               IN     SOA      ns.intranet.ephec-ti.be.     intranet.ephec.be. (
+@               IN     SOA      ns.intranet.ephec-ti.be.     contact.l2-1.ephec.be. (
                                 2001062501 ; numéro qui permet au serveur de vérifier que le contenu du fichier est à jour
                                 21600      ; temps que le NS esclave doit attendre avant de demander au NS maître si il y a eu des changements dans la zone (ici après 6 heures)
                                 3600       ; temps que le NS esclave doit attendre avant d'émettre une autre requête de rafraîchissement, au cas où le NS maître ne répondrait pas (ici après 1 heure)
