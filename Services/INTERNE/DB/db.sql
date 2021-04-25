@@ -4,8 +4,8 @@ CREATE USER 'username'@'address' IDENTIFIED BY 'password';
 #Création DB
 CREATE DATABASE db_wt;
 
-#Distribution des permissions à ces différents utilisateurs (toutes les permissions sont données dans notre cas, pour l'instant) (ce sont les mêmes adresses que précisées ci-dessus, mais encore une fois nous ne mettons que la strucure utlisée par soucis de sécurité)
-GRANT ALL PRIVILEGES ON db_wt.*  TO 'username'@'address';
+#Distribution des permissions à ces différents utilisateurs (seule la permission de lecture est accordée) (ce sont les mêmes adresses que précisées ci-dessus, mais encore une fois nous ne mettons que la strucure utlisée par soucis de sécurité)
+GRANT SELECT ON db_wt.*  TO 'username'@'address';
 
 #Lorsque les utilisateurs veulent accéder à la DB, ils accèdent directement à la bonne DB.
 USE db_wt;
