@@ -1,19 +1,16 @@
-CREATE USER 'wtl2-1'@'localhost' IDENTIFIED BY 'vps-ikram';
-CREATE USER 'wtl2-1'@'172.16.0.1' IDENTIFIED BY 'vps-ikram';
-CREATE USER 'wtl2-1'@'51.210.44.174' IDENTIFIED BY 'vps-ikram';
-CREATE USER 'wtl2-1'@'172.16.0.3' IDENTIFIED BY 'vps-ikram';
-CREATE USER 'wtl2-1'@'135.125.101.200' IDENTIFIED by 'vps-ikram';
+#Création des différents (5) utilisateurs qui pourront accéder à la DB (on ne voit ici que la structure utilisée, par soucis de sécurité)
+CREATE USER 'username'@'address' IDENTIFIED BY 'password';
 
+#Création DB
 CREATE DATABASE db_wt;
 
-GRANT ALL PRIVILEGES ON db_wt.*  TO 'wtl2-1'@'172.16.0.1';
-GRANT ALL PRIVILEGES ON db_wt.*  TO 'wtl2-1'@'localhost';
-GRANT ALL PRIVILEGES ON db_wt.*  TO 'wtl2-1'@'51.210.44.174';
-GRANT ALL PRIVILEGES ON db_wt.*  TO 'wtl2-1'@'172.16.0.3';
-GRANT ALL PRIVILEGES ON db_wt.*  TO 'wtl2-1'@'135.125.101.200';
+#Distribution des permissions à ces différents utilisateurs (toutes les permissions sont données dans notre cas, pour l'instant) (ce sont les mêmes adresses que précisées ci-dessus, mais encore une fois nous ne mettons que la strucure utlisée par soucis de sécurité)
+GRANT ALL PRIVILEGES ON db_wt.*  TO 'username'@'address';
 
+#Lorsque les utilisateurs veulent accéder à la DB, ils accèdent directement à la bonne DB.
 USE db_wt;
 
+#Données injectées dans la DB
 CREATE TABLE jeux(
     id_jeu INTEGER NOT NULL AUTO_INCREMENT,
     nom_jeu CHAR(40) NOT NULL,
