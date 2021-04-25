@@ -1,6 +1,6 @@
 $ORIGIN l2-1.ephec-ti.be.
 $TTL 86400
-@               IN     SOA      ns.l2-1.ephec-ti.be.     l2-1.ephec-ti.be. (
+@               IN     SOA      ns.l2-1.ephec-ti.be.    contact.l2-1.ephec-ti.be. (
                                	2001062501 ; serial
                                 21600      ; refresh after 6 hours
                                 3600       ; retry after 1 hour
