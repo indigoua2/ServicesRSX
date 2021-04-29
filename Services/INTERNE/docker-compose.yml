@@ -28,13 +28,13 @@ services:
     dns:
       - 172.16.0.1
     command: "named -c /etc/bind/named.conf -g"
-  
+
   database:
     build: ./DB/.
     command: --default-authentication-plugin=mysql_native_password
 
-    ports: 
-      - 5000:3306
+    ports:
+      - 3306:3306
     networks:
       interne:
           ipv4_address: 172.16.0.4
@@ -47,15 +47,19 @@ services:
 
   erp:
     build: ./ERP/.
-    networks:
-      interne:
-          ipv4_address: 172.16.0.3
+    volumes:
+      - ./ERP/intranet.conf:/etc/apache2/intranet.conf
+      - ./ERP/apache2.conf:/etc/apache2/apache2.conf
+      - ./ERP/resolv.conf:/etc/resolv.conf
+      - ./ERP/index.php:/var/www/intranet/index.php
+      - ./ERP/intranet-ssl.conf:/etc/apache2/intranet-ssl.conf
     ports:
       - 80:80
       - 443:443
-
+    networks:
+      interne:
+          ipv4_address: 172.16.0.3
     container_name: erp
-
 networks:
 
   interne:
