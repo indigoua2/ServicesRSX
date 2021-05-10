@@ -10,10 +10,10 @@ RUN apt-get install -y nano
 RUN apt install -y && apt-utils && wget && openssl && libxml2-dev && libncurses5-dev && uuid-dev && libsqlite3-dev && pkg-config && libjansson-dev 
 
 RUN echo "Europe/Madrid" | tee /etc/timezone
-RUN dpkg-reconfigure --frontend noninteractive tzdata
+
 
 # Installation d'Asterisk
-WORKDIR /usr/local/src/
+
 # Télechargement de asterisk version 16.9
 RUN wget http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-16.9.0.tar.gz
 # Decompression du packet asterisk installé
