@@ -12,13 +12,12 @@ RUN apt install -y && apt-utils && wget && openssl && libxml2-dev && libncurses5
 RUN echo "Europe/Madrid" | tee /etc/timezone
 
 
-# Installation d'Asterisk
-
-# Télechargement de asterisk version 16.9
-RUN wget http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-16.9.0.tar.gz
+# ==== Installation d'Asterisk ===
+# Télechargement de asterisk 
+RUN wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
 # Decompression du packet asterisk installé
-RUN tar -xvzf asterisk-16.9.0.tar.gz
-WORKDIR /usr/local/src/asterisk-16.9.0/
+RUN tar -xvzf asterisk-16-current.tar.gz
+WORKDIR /usr/local/src/asterisk-16.0.1/
 
 # Suivre documentation ubuntu 
 RUN ./configure
