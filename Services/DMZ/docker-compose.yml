@@ -1,3 +1,4 @@
+
 version: "2"
 
 services:
@@ -17,7 +18,6 @@ services:
     container_name: soa-ext
     command: "named -c /etc/bind/named.conf -g"
 
-
   web-dmz:
     build: ./WEB/
     ports:
@@ -32,7 +32,35 @@ services:
       - ./WEB/apache2.conf:/etc/apache2/apache2.conf
       - ./WEB/www.html:/var/www/index.html
       - ./WEB/www.conf:/etc/apache2/sites-available/www.conf
+      - ./WEB/action.php:/var/www/b2b/action.php
     container_name: web
+
+  voip:
+    build: ./VOIP/.
+    ports:
+      - "5060:5060/tcp"
+      - "5060:5060/udp"
+      - "16384:16384/udp"
+      - "16385:16385/udp"
+      - "16386:16386/udp"
+      - "16387:16387/udp"
+      - "16388:16388/udp"
+      - "16389:16389/udp"
+      - "16390:16390/udp"
+      - "16391:16391/udp"
+      - "16392:16392/udp"
+      - "16393:16393/udp"
+      - "16394:16394/udp"
+    networks:
+      dmz:
+          ipv4_address: 172.16.1.4
+    volumes:
+      - ./VOIP/fichiers/users.conf:/etc/asterisk/users.conf
+      - ./VOIP/fichiers/extensions.conf:/etc/asterisk/extensions.conf
+      - ./VOIP/fichiers/sip.conf:/etc/asterisk/sip.conf
+      - ./VOIP/fichiers/voicemail.conf:/etc/asterisk/voicemail.conf
+      - ./VOIP/fichiers/features.conf:/etc/asterisk/features.conf
+    container_name: voip
 
 networks:
 
