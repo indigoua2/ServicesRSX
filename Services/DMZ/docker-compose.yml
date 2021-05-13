@@ -60,6 +60,9 @@ services:
       - ./VOIP/fichiers/sip.conf:/etc/asterisk/sip.conf
       - ./VOIP/fichiers/voicemail.conf:/etc/asterisk/voicemail.conf
       - ./VOIP/fichiers/features.conf:/etc/asterisk/features.conf
+      - ./VOIP/fichiers/logger.conf:/etc/asterisk/logger.conf
+      - ./VOIP/fichiers/jail.conf:/etc/fail2ban/jail.conf
+      - ./VOIP/fichiers/asterisk.conf:/etc/fail2ban/filter.d/asterisk.conf
     container_name: voip
 
 networks:
