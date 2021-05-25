@@ -1,5 +1,2 @@
-user = mailUser
-password = root
-hosts = 127.0.0.1
-dbname = maildb
-query = SELECT 1 FROM virtual_domains WHERE name='%s'
+root@mail   no-reply@l2-1.ephec-ti.be
+@mail       no-reply@l2-1.ephec-ti.bejulie@vps-73b8eff9:~/ServicesRSX/MAIL/configuration-postfix$
