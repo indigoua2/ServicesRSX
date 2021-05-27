@@ -1,0 +1,16 @@
+# /etc/default/spamassassin
+
+#Activation du filtre spam
+ENABLED=1
+
+# Options
+OPTIONS="--create-prefs --max-children 5 --helper-home-dir --username spamd -H ${SAHOME} -s ${SAHOME}spamd.log"
+
+# Pid file
+PIDFILE="/var/run/spamd.pid"
+
+# Dossier des logs de spamassin
+SAHOME="/var/log/spamassassin/"
+
+# Lors du démarrage, on l'active
+CRON=1
