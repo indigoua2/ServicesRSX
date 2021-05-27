@@ -4,7 +4,7 @@ GRANT ALL PRIVILEGES ON mail.* to 'mail'@'localhost' identified by 'root';
 
 FLUSH PRIVILEGES;
 
-use maildb;
+use mail;
 
 CREATE TABLE `domaine` (
 `id` INT NOT NULL AUTO_INCREMENT,
