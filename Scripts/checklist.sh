@@ -1,7 +1,7 @@
 #==== DIG ====
 ipaddr=$(dig +short $1)
 echo $ipaddr
-
+sleep 3
 #=== DNS ==== 
 echo "DISPONIBILITÉ DU SERVICE DNS EXTERNE"
 nmap  $1 &>/dev/null && echo "success" || echo "Indisponible"
@@ -19,8 +19,9 @@ while true ; do
                 echo "$domain ==> ${result} DNS ACTIF"
         done < domains.txt
 sleep 1
+break
 done
-
+sleep 3
 #==== HTTP ====
 url=http://www.l2-1.ephec-ti.be
 
@@ -32,7 +33,7 @@ if [ "200" = ${val} ]; then
             else
                 echo Page WWW Non accessible
             fi
-            
+sleep 3         
 url=http://b2b.l2-1.ephec-ti.be
 
 curl ${url} -I -o headers -s
@@ -43,14 +44,14 @@ if [ "200" = ${val} ]; then
             else
                 echo Page B2B Non accessible
             fi
-            
+ sleep 3           
 #Verification de cetificat pour https
 openssl s_client -connect www.l2-1.ephec-ti.be:443
-
+sleep 3
 #==== MX ====
 nslookup -q=mx $ipaddr
 echo "Le service mail est disponible"
-
+sleep 3
 #Verification de cetificat pour mail
 openssl s_client -connect mail.l2-1.ephec-ti.be:465
 
