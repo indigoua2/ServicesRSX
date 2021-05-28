@@ -63,6 +63,8 @@ services:
       - ./VOIP/fichiers/logger.conf:/etc/asterisk/logger.conf
       - ./VOIP/fichiers/jail.conf:/etc/fail2ban/jail.conf
       - ./VOIP/fichiers/asterisk.conf:/etc/fail2ban/filter.d/asterisk.conf
+      - ./VOIP/chiffrage/keys:/etc/asterisk/keys
+      - ./VOIP/chiffrage/SRTP/libsrtp-2.3.0:/usr/src/libsrtp-2.3.0
     container_name: voip
 
 networks:
